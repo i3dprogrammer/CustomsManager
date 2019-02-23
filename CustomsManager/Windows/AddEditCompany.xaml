@@ -1,0 +1,18 @@
+﻿<Controls:MetroWindow x:Class="CustomsManager.Windows.AddEditCompany"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomsManager.Windows"
+        mc:Ignorable="d"
+        Title="Add new Customer" Height="79.647" Width="800" Loaded="MetroWindow_Loaded" ResizeMode="NoResize" WindowStartupLocation="Manual">
+    <Grid>
+        <Controls:NumericUpDown TabIndex="2" Minimum="0" Maximum="1000000" Height="26" x:Name="nud_code"  NumericInputMode="Numbers" HorizontalAlignment="Right" VerticalAlignment="Top" Panel.ZIndex="1" Width="120" Margin="0,11,104,0"/>
+        <Label Content="Customer Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBox" TabIndex="1" HorizontalAlignment="Left" Height="26" Margin="111,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="410"/>
+        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Height="30" Margin="698,8,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
+        <Label Content="Code" HorizontalAlignment="Left" Margin="526,11,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Controls:MetroWindow>

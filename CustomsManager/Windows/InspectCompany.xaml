@@ -1,0 +1,59 @@
+﻿<Controls:MetroWindow x:Class="CustomsManager.Windows.InspectCompany"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomsManager.Windows"
+        mc:Ignorable="d"
+        Title="Alphabet - Operations" Height="450" Width="837.832" Loaded="MetroWindow_Loaded">
+    <Grid>
+        <Label Content="Search Operations" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="108" Margin="10,10,0,0"/>
+        <TextBox x:Name="textBox" Height="25" Margin="120,11,120,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged"/>
+        <GroupBox Header="Operations" Margin="0,50,300,0" >
+            <Grid>
+                <DataGrid SelectionMode="Single" x:Name="list_records" AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="List_records_MouseDoubleClick" Margin="0,0,0,30">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu x:Name="menu" Loaded="CheckMenuItems">
+                            <MenuItem Header="Add Operation" Click="addRecord_menuClick"/>
+                            <MenuItem Header="Edit Operation" x:Name="menu_edit" Click="editRecord_menuItem"/>
+                            <MenuItem Header="Remove Operation" x:Name="menu_delete" Click="deleteRecord_menuItem"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Date" Width="100" Binding="{Binding Date, StringFormat=dd-MM-yy}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Operation Name" Binding="{Binding Name}" Width="300"  IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Cost" Binding="{Binding Total}" Width="150"  IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid Height="30" VerticalAlignment="Bottom" Background="AliceBlue">
+                    <Label x:Name="lbl_opCount" Content="Operations Count: 0/0" VerticalAlignment="Center"/>
+                    <Label x:Name="lbl_totalCost" Content="Total Cost: 0.0" Margin="50,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="Deposits" HorizontalAlignment="Right" Width="290" Margin="0,50,0,0">
+            <Grid>
+                <DataGrid x:Name="list_deposits" SelectionMode="Single" AutoGenerateColumns="False" CanUserAddRows="False" Margin="0,0,0,30">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Date" Width="100" Binding="{Binding Date, StringFormat=dd-MM-yy}"/>
+                        <DataGridTextColumn Header="Deposit" Width="80" Binding="{Binding Value}"/>
+                        <DataGridTextColumn Header="Bank" Width="70" Binding="{Binding Bank}"/>
+                    </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu x:Name="d_menu" Loaded="CheckMenuItems">
+                            <MenuItem Header="Add Deposit" Click="addDeposit_menuClick"/>
+                            <MenuItem Header="Edit Deposit" x:Name="dmenu_edit" Click="editDeposit_menuItem"/>
+                            <MenuItem Header="Remove Deposit" x:Name="dmenu_delete" Click="deleteDeposit_menuItem"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+                <Grid Height="30" VerticalAlignment="Bottom" Background="AliceBlue">
+                    <Label x:Name="lbl_totalDeposit" Content="Total: 0.0" VerticalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </GroupBox>
+        <Button Content="Refresh" HorizontalAlignment="Right" Margin="0,11,11,0" VerticalAlignment="Top" Width="95" Click="Button_Click"/>
+
+    </Grid>
+</Controls:MetroWindow>

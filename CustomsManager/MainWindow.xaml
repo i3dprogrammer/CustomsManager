@@ -1,12 +1,37 @@
-﻿<Window x:Class="CustomsManager.MainWindow"
+﻿<Controls:MetroWindow x:Class="CustomsManager.MainWindow"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CustomsManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Customs Manager" Height="550" Width="800" Loaded="Window_Loaded">
+    <Grid x:Name="mainGrid">
+        <Label Content="Search by customer name" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="151" Margin="2,7,0,0"/>
+        <TextBox x:Name="textBox" Height="27" Margin="150,7,130,0" TextWrapping="Wrap" VerticalAlignment="Top" TextChanged="TextBox_TextChanged"/>
+        <DataGrid SelectionMode="Single" x:Name="list_customers" AutoGenerateColumns="False" MouseDoubleClick="List_customers_MouseDoubleClick" Margin="0,45,0,0">
+            <DataGrid.ContextMenu>
+                <ContextMenu x:Name="menu" Loaded="CheckMenuItems">
+                    <MenuItem Header="Add new customer" Click="addNewCustomer_menuClick"/>
+                    <MenuItem Header="Edit customer" x:Name="menu_edit" Click="editCustomer_menuClick"/>
+                    <MenuItem Header="Remove customer" x:Name="menu_delete" Click="deleteCustomer_menuClick" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Code}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="400" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Total Deposits" Binding="{Binding TotalDeposits}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Total Cost" Binding="{Binding TotalCost}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Total Credit" Binding="{Binding TotalCredit}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Refresh" HorizontalAlignment="Right" VerticalAlignment="Top" Width="108" Click="RefreshCustomers" Margin="0,7,8,0"/>
     </Grid>
-</Window>
+
+    <Controls:MetroWindow.Resources>
+        <!--<Style TargetType="DataGridCell">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>-->
+    </Controls:MetroWindow.Resources>
+</Controls:MetroWindow>

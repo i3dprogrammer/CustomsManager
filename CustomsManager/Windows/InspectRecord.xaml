@@ -1,0 +1,45 @@
+﻿<Controls:MetroWindow
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomsManager.Windows"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="CustomsManager.Windows.InspectRecord"
+        mc:Ignorable="d"
+        Title="InspectRecord" Height="481.858" Width="800" Loaded="MetroWindow_Loaded" FontSize="14" Closing="MetroWindow_Closing">
+    <Grid Background="AliceBlue">
+        <DataGrid GridLinesVisibility="All" SelectionMode="Single" x:Name="list_rules"  AutoGenerateColumns="False" CanUserAddRows="False" MouseDoubleClick="List_rules_MouseDoubleClick" Margin="0,0,0,49">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" Width="350" IsReadOnly="True">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTemplateColumn Header="Value" Width="200" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Controls:NumericUpDown TabIndex="0" Value="{Binding Path=Value, Mode=TwoWay, UpdateSourceTrigger=LostFocus}" ParsingNumberStyle="AllowDecimalPoint" TextAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Receipt" IsReadOnly="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Attach" Width="100" FontSize="13" Click="selectReceipt"/>
+                                <Button Content="View" Width="100" FontSize="13" IsEnabled="{Binding ReceiptExist}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Click="saveChanges" Content="Save" HorizontalAlignment="Right" Margin="0,0,5,8" VerticalAlignment="Bottom" Width="100" FontSize="14"/>
+        <Button Content="Refresh" HorizontalAlignment="Right" Margin="0,0,110,8" VerticalAlignment="Bottom" Width="100" FontSize="14" Click="Button_Click"/>
+        <Label x:Name="lbl_total" Content="Total Cost: 0.0" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom"/>
+
+    </Grid>
+</Controls:MetroWindow>

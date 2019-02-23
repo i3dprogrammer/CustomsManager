@@ -1,0 +1,19 @@
+﻿<Controls:MetroWindow  x:Class="CustomsManager.Windows.AddEditDeposit"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomsManager.Windows"
+        mc:Ignorable="d"
+        Title="Add new Deposit" Height="83.407" Width="800" Loaded="MetroWindow_Loaded" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Bank" HorizontalAlignment="Left" Margin="295,10,0,0" VerticalAlignment="Top"/>
+        <TextBox TabIndex="2" x:Name="tb_bank" HorizontalAlignment="Left" Height="26" Margin="336,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="118"/>
+        <Button x:Name="btn_add" Content="Add" HorizontalAlignment="Left" Height="29" Margin="690,9,0,0" VerticalAlignment="Top" Width="92" Click="Btn_add_Click"/>
+        <Label Content="Value" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Controls:NumericUpDown TabIndex="1" x:Name="nud_value" HorizontalAlignment="Left" Height="26" Margin="54,10,0,0" VerticalAlignment="Top" Width="236" ParsingNumberStyle="Float"/>
+        <DatePicker TabIndex="3" x:Name="datePicker" HorizontalAlignment="Left" Margin="499,11,0,0" VerticalAlignment="Top" Width="186"/>
+        <Label Content="Date" HorizontalAlignment="Left" Margin="459,9,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Controls:MetroWindow>

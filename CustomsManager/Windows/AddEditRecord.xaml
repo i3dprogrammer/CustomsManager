@@ -1,0 +1,18 @@
+﻿<Controls:MetroWindow x:Class="CustomsManager.Windows.AddEditRecord"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CustomsManager.Windows"
+        mc:Ignorable="d"
+        Title="Add new Operation" Height="86.615" Width="800" Loaded="MetroWindow_Loaded" ResizeMode="NoResize">
+    <Grid>
+        <Label Content="Operation Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox TabIndex="1" x:Name="tb_name" HorizontalAlignment="Left" Height="26" Margin="113,11,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="284"/>
+        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Height="29" Margin="690,10,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
+        <Label Content="Operation Date" HorizontalAlignment="Left" Margin="402,11,0,0" VerticalAlignment="Top"/>
+        <DatePicker TabIndex="2" x:Name="datePicker" HorizontalAlignment="Left" Margin="499,11,0,0" VerticalAlignment="Top" Width="186"/>
+    </Grid>
+</Controls:MetroWindow>
+    
